@@ -1,0 +1,13 @@
+{
+  "name": "hl-lab1-lite-server",
+  "version": "1.0.0",
+  "description": "HL Lab1: lite-server",
+  "main": "index.js",
+  "scripts": {
+    "start": "lite-server"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}

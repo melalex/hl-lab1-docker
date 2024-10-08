@@ -1,0 +1,12 @@
+{
+  "name": "hl-lab1-json-server",
+  "version": "1.0.0",
+  "description": "HL Lab1: json-server",
+  "main": "index.js",
+  "scripts": {
+    "start": "json-server --watch db.json --host 0.0.0.0 --port 3000"
+  },
+  "dependencies": {
+    "json-server": "^0.17.0"
+  }
+}

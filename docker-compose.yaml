@@ -1,0 +1,37 @@
+services:
+  hello-world:
+    image: "hello-world:latest"
+
+  lite-server:
+    build: 
+      context: lite-server
+      dockerfile: Dockerfile
+    deploy:
+      replicas: 3
+    networks:
+      - loadbalancing
+
+  json-server:
+    build: 
+      context: json-server
+      dockerfile: Dockerfile
+    deploy:
+      replicas: 3
+    networks:
+      - loadbalancing
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - json-server
+      - lite-server
+    networks:
+      - loadbalancing
+
+networks:
+  loadbalancing:
+    driver: bridge
